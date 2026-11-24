@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resumo - Projeto ITEAM</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <!-- Página PRÓPRIA (não usa o app.js): mostra os números de GET /api/tarefas/resumo.
+       Serve de modelo para o extra "rota de resumo" de qualquer tema. -->
+  <header class="topo">
+    <h1>Resumo</h1>
+    <p class="sub">Números calculados pela API em <code>GET /api/tarefas/resumo</code></p>
+    <nav class="menu" aria-label="Telas do sistema">
+      <a href="index.html">Tarefas</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="resumo.html" aria-current="page">Resumo</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <p id="aviso" class="aviso" role="status" hidden></p>
+
+    <section class="cartao">
+      <h2>Visão geral</h2>
+      <div id="indicadores" class="indicadores"></div>
+    </section>
+
+    <section class="cartao">
+      <h2>Andamento por projeto</h2>
+      <div id="projetos"></div>
+    </section>
+  </main>
+
+  <script src="resumo.js"></script>
+</body>
+</html>

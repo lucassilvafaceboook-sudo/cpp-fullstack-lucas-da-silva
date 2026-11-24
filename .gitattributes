@@ -1,0 +1,15 @@
+# Normaliza quebras de linha: evita diferenças entre Windows (CRLF) e Linux/macOS (LF).
+* text=auto
+
+# Scripts de shell precisam de LF para rodar no MSYS2/Linux
+*.sh   text eol=lf
+# Arquivos .bat precisam de CRLF no Windows
+*.bat  text eol=crlf
+
+# Arquivos de dados lidos pelas atividades da unidade 5 (o código também tolera CRLF)
+unidade-*/base/*.csv text eol=lf
+unidade-*/base/*.txt text eol=lf
+unidade-*/base/*.log text eol=lf
+
+# Bibliotecas de terceiros: não poluir os diffs
+projetos/starter-kit/libs/** linguist-vendored

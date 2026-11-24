@@ -1,0 +1,59 @@
+# docker-compose.yml - Banco de dados MariaDB do projeto, em um container Docker.
+#
+# Comandos (rode na pasta onde está este arquivo):
+#   docker compose up -d --wait           sobe o banco e espera ficar pronto (a 1ª vez baixa a imagem)
+#   docker compose ps                     mostra se está no ar
+#   docker compose stop                   para (os dados continuam guardados)
+#   docker compose down                   remove o container (os dados continuam no volume)
+#   docker compose down -v                remove TUDO, inclusive os dados: o schema.sql roda de novo no próximo "up"
+#   docker compose --profile admin up -d  sobe também o Adminer (tela de administração) em http://localhost:8081
+#
+# O arquivo schema.sql é executado automaticamente, UMA vez, quando o banco é criado (volume vazio).
+# Se você alterar o schema.sql depois, use "docker compose down -v" e suba de novo (veja o guia 04).
+#
+# Credenciais (só para desenvolvimento local; a porta só é aberta para o seu computador):
+#   usuário da aplicação: iteam / iteam123      administrador: root / root      banco: projeto_iteam
+# O servidor em C++ já usa esses valores por padrão (src/config.hpp).
+
+services:
+  db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: projeto_iteam
+      MARIADB_USER: iteam
+      MARIADB_PASSWORD: iteam123
+      TZ: America/Manaus
+    # Acentos e emojis corretos em todas as tabelas
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    ports:
+      # Só o seu computador acessa. Se a porta 3306 já estiver em uso, defina DB_PORTA (ex.: 3307)
+      # antes de subir, e use a mesma variável ao executar o servidor.
+      - "127.0.0.1:${DB_PORTA:-3306}:3306"
+    volumes:
+      - dados-mariadb:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      # Testa uma conexão TCP com o usuário da aplicação. Durante a criação inicial (quando o schema.sql
+      # roda) o MariaDB ainda não aceita conexões TCP; por isso "healthy" só aparece quando tudo terminou.
+      test: ["CMD-SHELL", "mariadb -h127.0.0.1 -u$$MARIADB_USER -p$$MARIADB_PASSWORD $$MARIADB_DATABASE -e 'SELECT 1' > /dev/null 2>&1"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+      start_period: 5s
+
+  # Opcional: administração do banco pelo navegador (equivalente ao phpMyAdmin).
+  # Sobe só com:  docker compose --profile admin up -d
+  # Em http://localhost:8081 use: Sistema = MySQL, Servidor = db, Usuário = iteam, Senha = iteam123, Banco = projeto_iteam
+  adminer:
+    image: adminer:latest
+    profiles: ["admin"]
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "127.0.0.1:8081:8080"
+
+volumes:
+  dados-mariadb:

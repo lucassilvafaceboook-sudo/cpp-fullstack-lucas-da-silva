@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projeto ITEAM - C++</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <header class="topo">
+    <h1 id="titulo-pagina">Carregando...</h1>
+    <p class="sub">Front-end do CRUD &mdash; servido pela sua API em C++</p>
+    <nav id="menu" class="menu" aria-label="Telas do sistema" hidden></nav>
+  </header>
+
+  <main class="conteudo">
+    <p id="aviso" class="aviso" role="status" hidden></p>
+
+    <section class="cartao">
+      <h2 id="titulo-formulario">Novo registro</h2>
+      <!-- Os campos deste formulario sao criados pelo app.js a partir da lista CONFIG.campos -->
+      <form id="formulario" novalidate></form>
+    </section>
+
+    <section class="cartao">
+      <div class="barra">
+        <h2>Registros</h2>
+        <form id="form-busca" class="busca" role="search">
+          <input id="busca" type="search" placeholder="Buscar..." aria-label="Buscar">
+          <button type="submit">Buscar</button>
+          <button type="button" id="limpar-busca" class="secundario">Limpar</button>
+        </form>
+      </div>
+      <div class="rolagem">
+        <table id="tabela">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p id="vazio" class="vazio" hidden>Nenhum registro encontrado.</p>
+    </section>
+  </main>
+
+  <script src="config-projetos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

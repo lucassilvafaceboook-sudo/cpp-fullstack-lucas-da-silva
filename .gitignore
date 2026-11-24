@@ -1,0 +1,15 @@
+# Executáveis e objetos de compilação
+*.exe
+*.o
+*.obj
+*.out
+*.a
+*.lib
+a.out
+# Saídas de build do projeto final
+build/
+bin/
+# Arquivos de editor e sistema
+.DS_Store
+Thumbs.db
+*.swp
