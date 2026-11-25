@@ -1,0 +1,8 @@
+2026-11-03 14:22:01 INFO web: servidor iniciado
+2026-11-03 14:22:05 WARN db: conexao lenta (850 ms)
+2026-11-03 14:23:10 ERROR db: falha ao conectar
+2026-11-03 14:25:44 INFO web: requisicao GET /alunos
+linha quebrada sem formato
+2026-11-03 14:26:02 ERROR web: timeout na rota /notas
+2026-11-03 14:30:00 INFO web: servidor encerrado
+2026-11-03 14:21:30 ERROR web: certificado expirado
