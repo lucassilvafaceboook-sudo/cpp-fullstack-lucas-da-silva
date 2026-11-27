@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_standard" name="shell-type" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    @layer base {
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    id="tailwind-config">tailwind.config = { "darkMode": "class", "theme": { "extend": { "colors": { "primary": "#002218", "surface-bright": "#f9faf8", "on-secondary": "#ffffff", "surface-container-highest": "#e1e3e1", "on-primary": "#ffffff", "inverse-surface": "#2e3130", "primary-fixed": "#c5ebd9", "secondary-container": "#ff9c2e", "on-surface": "#191c1b", "secondary-fixed": "#ffdcc0", "secondary-fixed-dim": "#ffb875", "surface-container-low": "#f3f4f2", "on-primary-container": "#7ea292", "surface-container-high": "#e7e8e6", "error-container": "#ffdad6", "surface-dim": "#d9dad8", "error": "#ba1a1a", "primary-fixed-dim": "#aacfbe", "tertiary-container": "#003a29", "on-primary-fixed": "#002116", "background": "#f9faf8", "outline": "#717974", "secondary": "#8d4f00", "tertiary-fixed-dim": "#90d5b6", "on-tertiary-fixed-variant": "#00513a", "tertiary": "#002217", "on-secondary-fixed-variant": "#6b3b00", "surface-tint": "#436557", "on-primary-fixed-variant": "#2c4d40", "surface-container-lowest": "#ffffff", "surface": "#f9faf8", "outline-variant": "#c1c8c3", "tertiary-fixed": "#acf1d1", "on-surface-variant": "#414844", "on-background": "#191c1b", "primary-container": "#16382c", "on-error": "#ffffff", "inverse-primary": "#aacfbe", "on-error-container": "#93000a", "surface-variant": "#e1e3e1", "surface-container": "#edeeec", "inverse-on-surface": "#f0f1ef", "on-secondary-fixed": "#2d1600", "on-tertiary-container": "#64a78b", "on-tertiary": "#ffffff", "on-secondary-container": "#693a00", "on-tertiary-fixed": "#002115" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter-sm": "1rem", "gutter": "1.5rem", "space-lg": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "margin": "2rem", "space-2xl": "4rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "margin-sm": "1rem" }, "fontFamily": { "label-md": ["Inter"], "body-md": ["Inter"], "body-sm": ["Inter"], "headline-lg": ["Manrope"], "headline-sm": ["Manrope"], "label-sm": ["Inter"], "headline-lg-mobile": ["Manrope"], "display-lg": ["Manrope"], "display-lg-mobile": ["Manrope"], "title-lg": ["Manrope"], "label-lg": ["Inter"], "body-lg": ["Inter"], "headline-md": ["Manrope"] }, "fontSize": { "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "800" }], "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }] } } } }</script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface">
+  <header
+    class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-space-md">
+      <div class="flex items-center gap-space-sm"><img alt="Logo Clínica Pet" class="h-8 w-auto object-contain"
+          src="https://lh3.googleusercontent.com/aida/ALJJyrBTYiVP8J0Hu07cb0kB1ODXSEh9dOOkj_WMKjyfkSH6HYbMVEx-7e-ZU-KpZiZ5dylmoBAw5ct-kAeOyI7Ao_NloqGMmgHW9_fM73CXqZgrvuDyWaoHs2GMbpdW5CVxMMBieFrQlMuyRKsyGtH1AfQzDJDSm9v9dOuR6kytj9i4WwyUMm-7yyqbv4Gbn1DZTydxhQ2Dychxi12ZX-OiUcPTh8kicta1_zExXatezamAww" />
+        <div class="flex flex-col">
+          <div class="flex items-center gap-space-xs"><span
+              class="material-symbols-outlined text-primary text-[20px]">pets</span><span
+              class="font-title-lg text-title-lg text-primary font-bold tracking-tight">Clínica Pet</span></div><span
+            class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ITEAM RR • Boa
+            Vista</span>
+        </div>
+      </div>
+      <nav class="hidden lg:flex items-center gap-space-xs p-space-xs bg-surface-container-low rounded-full"
+        data-active-classes="bg-primary-container text-on-primary font-semibold rounded-lg shadow-sm"><a
+          class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+          data-path="inicio" href="#">Início</a><a aria-current="page"
+          class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary font-semibold rounded-lg shadow-sm"
+          data-path="acesso" href="#">Acesso</a><a
+          class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+          data-path="localizacao" href="#">Localização</a><a
+          class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+          data-path="contato" href="#">Contato</a><a
+          class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+          data-path="avaliacoes" href="#">Avaliações</a></nav>
+      <div class="flex items-center gap-space-md"><a
+          class="inline-flex items-center justify-center h-11 px-space-md rounded-lg bg-secondary-container text-on-secondary font-label-lg text-label-lg hover:bg-secondary-container/90 transition-all shadow-[0_4px_16px_-4px_rgba(22,56,44,0.06)]"
+          data-path="autenticacao" href="#"><span
+            class="material-symbols-outlined mr-space-xs text-[18px]">login</span>Entrar / Criar conta</a>
+        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span
+            class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+      </div>
+    </div>
+  </header>
+  <main class="w-full pt-20 bg-surface min-h-screen">
+    <div class="flex flex-col w-full">
+      <!-- Top Decorative Micro Bar -->
+      <div
+        class="w-full bg-primary-container text-on-primary py-2 px-4 sm:px-8 text-center flex items-center justify-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-label-md text-label-md tracking-wide">
+          <span class="material-symbols-outlined text-[16px] text-secondary-container"
+            style="font-variation-settings: 'FILL' 1;">pets</span>
+          Atendimento Ambulatorial &amp; Acadêmico ITEAM RR • Boa Vista
+        </span>
+        <span class="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+        <span class="hidden md:inline font-body-sm text-body-sm text-on-primary-container">Agendamento rápido online
+          para tutores da capital</span>
+      </div>
+      <!-- HERO SECTION WITH COMPREHENSIVE LOGIN / REGISTRATION CARD -->
+      <section class="relative w-full overflow-hidden bg-surface py-12 lg:py-20">
+        <!-- Organic Background Blobs & Paw Prints -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-primary-fixed/30 blur-3xl pointer-events-none">
+        </div>
+        <div
+          class="absolute top-1/2 -right-24 w-96 h-96 rounded-full bg-secondary-fixed/40 blur-3xl pointer-events-none">
+        </div>
+        <!-- Decorative SVG Paw Silhouette (Background Aesthetic) -->
+        <svg class="absolute top-12 right-12 w-48 h-48 text-primary/5 pointer-events-none hidden lg:block"
+          fill="currentColor" viewbox="0 0 100 100">
+          <ellipse cx="50" cy="68" rx="20" ry="16"></ellipse>
+          <ellipse cx="28" cy="40" rx="9" ry="13" transform="rotate(-15 28 40)"></ellipse>
+          <ellipse cx="44" cy="30" rx="9" ry="14"></ellipse>
+          <ellipse cx="60" cy="30" rx="9" ry="14"></ellipse>
+          <ellipse cx="76" cy="40" rx="9" ry="13" transform="rotate(15 76 40)"></ellipse>
+        </svg>
+        <div class="max-w-7xl mx-auto px-gutter relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <!-- Left Column: Copy & Interactive Auth Card -->
+            <div class="lg:col-span-7 flex flex-col items-start">
+              <!-- Modern Top Badge -->
+              <div
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-container/10 text-primary-container mb-4">
+                <span class="material-symbols-outlined text-[16px] text-secondary-container"
+                  style="font-variation-settings: 'FILL' 1;">pets</span>
+                <span class="font-label-md text-label-md font-semibold tracking-wide">Cuidado de Excelência • ITEAM
+                  RR</span>
+              </div>
+              <!-- Hero Main Headline -->
+              <h1
+                class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary tracking-tight font-extrabold mb-4 leading-tight">
+                CUIDADO E SAÚDE PARA O SEU PET
+              </h1>
+              <!-- Descriptive Body Text -->
+              <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-2xl">
+                O bem-estar e a vitalidade do seu melhor amigo em mãos que amam animais. Acesse o portal para agendar
+                consultas, ver vacinas e acompanhar o histórico de saúde com comodidade.
+              </p>
+              <!-- Interactive Tabbed Access Card -->
+              <div
+                class="w-full max-w-xl bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_-4px_rgba(22,56,44,0.08),0_2px_8px_-2px_rgba(22,56,44,0.04)] overflow-hidden">
+                <!-- Auth Navigation Tabs -->
+                <div class="grid grid-cols-2 p-1.5 bg-surface-container-low rounded-t-xl gap-1">
+                  <button
+                    class="flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-label-lg text-label-lg transition-all duration-200 bg-primary-container text-on-primary shadow-sm"
+                    id="btn-tab-login" onclick="switchAuthTab('login')" type="button">
+                    <span class="material-symbols-outlined text-[18px]">login</span>
+                    <span>Entrar</span>
+                  </button>
+                  <button
+                    class="flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-label-lg text-label-lg transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
+                    id="btn-tab-register" onclick="switchAuthTab('register')" type="button">
+                    <span class="material-symbols-outlined text-[18px]">person_add</span>
+                    <span>Criar conta</span>
+                  </button>
+                </div>
+                <!-- Tab Content 1: LOGIN -->
+                <div class="p-6 sm:p-8 flex flex-col gap-4" id="tab-login-content">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-title-lg text-title-lg text-primary font-bold">Acesse seu painel</span>
+                    <span
+                      class="font-label-sm text-label-sm px-2.5 py-1 rounded bg-secondary-fixed/50 text-on-secondary-container">Acesso
+                      Rápido</span>
+                  </div>
+                  <!-- Input Email -->
+                  <div class="flex flex-col gap-1.5">
+                    <label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5"
+                      for="login-email">
+                      <span class="material-symbols-outlined text-[16px] text-primary">mail</span> E-mail ou Usuário
+                    </label>
+                    <div class="relative">
+                      <input
+                        class="w-full h-11 px-3.5 bg-surface-container-low text-on-surface rounded-lg placeholder-on-surface-variant/60 focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                        id="login-email" placeholder="exemplo@email.com" type="email" />
+                    </div>
+                  </div>
+                  <!-- Input Senha -->
+                  <div class="flex flex-col gap-1.5">
+                    <label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5"
+                      for="login-password">
+                      <span class="material-symbols-outlined text-[16px] text-primary">lock</span> Senha
+                    </label>
+                    <div class="relative flex items-center">
+                      <input
+                        class="w-full h-11 pl-3.5 pr-11 bg-surface-container-low text-on-surface rounded-lg placeholder-on-surface-variant/60 focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                        id="login-password" placeholder="Sua senha secreta" type="password" />
+                      <button
+                        class="absolute right-2.5 text-on-surface-variant hover:text-primary transition-colors p-1"
+                        onclick="togglePasswordVisibility('login-password', this)" title="Alternar visibilidade"
+                        type="button">
+                        <span class="material-symbols-outlined text-[20px]">visibility</span>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Remember & Forgot Password -->
+                  <div class="flex items-center justify-between pt-1">
+                    <label class="flex items-center gap-2 cursor-pointer select-none">
+                      <input checked=""
+                        class="w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer"
+                        type="checkbox" />
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">Lembrar meu acesso</span>
+                    </label>
+                    <a class="font-label-sm text-label-sm text-secondary hover:text-secondary-container transition-colors font-medium"
+                      href="#">Esqueceu a senha?</a>
+                  </div>
+                  <!-- Submit Button -->
+                  <button
+                    class="w-full h-12 mt-2 bg-secondary-container hover:bg-secondary-container/90 text-on-secondary font-label-lg text-label-lg rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 font-bold"
+                    type="button">
+                    <span>Entrar na Minha Conta</span>
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                  </button>
+                  <div class="text-center pt-2">
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                      Ainda não tem cadastro?
+                      <button class="text-primary font-semibold hover:underline" onclick="switchAuthTab('register')"
+                        type="button">
+                        Criar conta gratuita
+                      </button>
+                    </p>
+                  </div>
+                </div>
+                <!-- Tab Content 2: REGISTER -->
+                <div class="p-6 sm:p-8 hidden flex flex-col gap-4" id="tab-register-content">
+                  <div class="flex flex-col mb-1">
+                    <span class="font-title-lg text-title-lg text-primary font-bold">Novo Cadastro na Clínica Pet</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">Selecione seu perfil de acesso no
+                      ITEAM RR:</span>
+                  </div>
+                  <!-- Profile Selector Radio Cards -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-1">
+                    <label
+                      class="flex items-center gap-3 p-3.5 rounded-lg bg-primary-fixed/25 text-primary cursor-pointer transition-all border-2 border-primary-container"
+                      id="label-profile-tutor">
+                      <input checked="" class="accent-primary-container cursor-pointer" name="profile-type"
+                        onchange="handleProfileChange('tutor')" type="radio" value="tutor" />
+                      <div class="flex flex-col">
+                        <span class="font-label-md text-label-md font-bold flex items-center gap-1">🐾 Sou tutor de um
+                          pet</span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Agendar e acompanhar</span>
+                      </div>
+                    </label>
+                    <label
+                      class="flex items-center gap-3 p-3.5 rounded-lg bg-surface-container-low text-on-surface cursor-pointer transition-all hover:bg-surface-container"
+                      id="label-profile-vet">
+                      <input class="accent-primary-container cursor-pointer" name="profile-type"
+                        onchange="handleProfileChange('vet')" type="radio" value="vet" />
+                      <div class="flex flex-col">
+                        <span class="font-label-md text-label-md font-bold flex items-center gap-1">🩺 Sou da clínica
+                          (vet)</span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Corpo clínico e docente</span>
+                      </div>
+                    </label>
+                  </div>
+                  <!-- Name & Phone Fields -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="flex flex-col gap-1">
+                      <label class="font-label-sm text-label-sm text-on-surface font-semibold">Nome Completo</label>
+                      <input
+                        class="w-full h-11 px-3 bg-surface-container-low text-on-surface rounded-lg placeholder-on-surface-variant/60 focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                        placeholder="Seu nome" type="text" />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <label class="font-label-sm text-label-sm text-on-surface font-semibold">Telefone /
+                        WhatsApp</label>
+                      <input
+                        class="w-full h-11 px-3 bg-surface-container-low text-on-surface rounded-lg placeholder-on-surface-variant/60 focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                        placeholder="(95) 99123-4567" type="tel" />
+                    </div>
+                  </div>
+                  <!-- Email Field -->
+                  <div class="flex flex-col gap-1">
+                    <label class="font-label-sm text-label-sm text-on-surface font-semibold">E-mail institucional ou
+                      pessoal</label>
+                    <input
+                      class="w-full h-11 px-3 bg-surface-container-low text-on-surface rounded-lg placeholder-on-surface-variant/60 focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                      placeholder="voce@exemplo.com" type="email" />
+                  </div>
+                  <!-- Password & Confirm Password -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="flex flex-col gap-1">
+                      <label class="font-label-sm text-label-sm text-on-surface font-semibold">Senha</label>
+                      <input
+                        class="w-full h-11 px-3 bg-surface-container-low text-on-surface rounded-lg placeholder-on-surface-variant/60 focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                        placeholder="Mínimo 8 dígitos" type="password" />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <label class="font-label-sm text-label-sm text-on-surface font-semibold">Confirmar Senha</label>
+                      <input
+                        class="w-full h-11 px-3 bg-surface-container-low text-on-surface rounded-lg placeholder-on-surface-variant/60 focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                        placeholder="Repita a senha" type="password" />
+                    </div>
+                  </div>
+                  <!-- CONDITIONAL VET ACCESS CODE FIELD -->
+                  <div class="hidden flex-col gap-1.5 p-3.5 rounded-lg bg-secondary-fixed/40" id="vet-code-container">
+                    <div class="flex items-center justify-between">
+                      <label
+                        class="font-label-md text-label-md text-on-secondary-fixed font-bold flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-[18px]">verified_user</span> Código da Clínica
+                      </label>
+                      <span class="font-label-sm text-label-sm text-secondary font-semibold">Exigido para
+                        veterinários</span>
+                    </div>
+                    <input
+                      class="w-full h-10 px-3 bg-surface-container-lowest text-on-surface rounded-lg placeholder-on-surface-variant/60 uppercase tracking-wider font-mono font-bold focus:ring-2 focus:ring-secondary outline-none"
+                      id="vet-code-input" placeholder="Ex.: vet-2026" type="text" />
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">Insira o código de validação
+                      fornecido pela coordenação ITEAM RR.</span>
+                  </div>
+                  <!-- Privacy Policy Agreement -->
+                  <div class="flex items-start gap-2 pt-1">
+                    <input class="mt-1 w-4 h-4 rounded text-primary-container accent-primary-container cursor-pointer"
+                      id="terms-agree" type="checkbox" />
+                    <label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="terms-agree">
+                      Concordo com os Termos de Uso e a Política de Privacidade e Bem-estar Animal da Clínica Pet ITEAM
+                      RR.
+                    </label>
+                  </div>
+                  <!-- Register Submit Button -->
+                  <button
+                    class="w-full h-12 mt-1 bg-secondary-container hover:bg-secondary-container/90 text-on-secondary font-label-lg text-label-lg rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 font-bold"
+                    type="button">
+                    <span class="material-symbols-outlined text-[20px]">how_to_reg</span>
+                    <span>Criar Conta Pet</span>
+                  </button>
+                  <div class="text-center">
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                      Já possui conta cadastrada?
+                      <button class="text-primary font-semibold hover:underline" onclick="switchAuthTab('login')"
+                        type="button">
+                        Fazer Login
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Right Column: Visual Composition with Pet Photo and Floating Badges -->
+            <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+              <!-- Backing Organic Aura Shapes -->
+              <div class="absolute -top-10 -right-10 w-72 h-72 rounded-full bg-secondary-fixed/50 blur-2xl -z-10"></div>
+              <div class="absolute -bottom-8 -left-8 w-80 h-80 rounded-full bg-primary-fixed/40 blur-2xl -z-10"></div>
+              <!-- Decorative Paw Icons around image -->
+              <div
+                class="absolute top-4 left-6 text-secondary-container/60 animate-bounce duration-1000 hidden sm:block">
+                <span class="material-symbols-outlined text-[36px]"
+                  style="font-variation-settings: 'FILL' 1;">pets</span>
+              </div>
+              <div class="absolute bottom-6 right-8 text-primary-container/40 hidden sm:block">
+                <span class="material-symbols-outlined text-[44px]"
+                  style="font-variation-settings: 'FILL' 1;">pets</span>
+              </div>
+              <!-- Main Curved Image Wrapper (Faithful to Reference Image 6 & Style 1) -->
+              <div
+                class="relative w-full max-w-md sm:max-w-lg aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_16px_40px_-8px_rgba(22,56,44,0.18)] bg-surface-container-low group">
+                <img alt="Cachorro Golden Retriever e Gato fofo juntos representando a união e cuidado na Clínica Pet"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGzdWypOIz-QMd5D4n8VUDfSBABv7bCmN6NyipcJAEdoYT-VkP5HGOj2JMvQCBtTDaJSd9mGyolVXosA00MecftgNitYoNW94dQySu0-ocLTLlmM2qEff7AVmDVLxvM3g9OEmkFcEduKZQXJ4SQjfgoZU60zLd9BXqf6K7C2MZk6Mtatzx14jB0Git4v16rrHqXt5SlvVvbUvy5ort4LJpkKBKWBJNPZ1zJlg00x6M" />
+                <!-- Soft Bottom Gradient Vignette -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-60">
+                </div>
+                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-on-primary">
+                  <span
+                    class="font-label-md text-label-md flex items-center gap-1.5 backdrop-blur-md bg-primary-container/60 py-1.5 px-3 rounded-full">
+                    <span class="material-symbols-outlined text-[16px] text-tertiary-fixed">verified</span> Cuidado
+                    Integral em Família
+                  </span>
+                  <span class="font-label-sm text-label-sm opacity-90">ITEAM RR</span>
+                </div>
+              </div>
+              <!-- Floating Badge 1: 4.9 Stars Rating -->
+              <div
+                class="w-full max-w-sm sm:w-auto -mt-6 sm:-mt-8 sm:-ml-12 z-20 bg-surface-container-lowest p-3.5 rounded-xl shadow-lg flex items-center gap-3 transform hover:-translate-y-1 transition-transform">
+                <div
+                  class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+                  <span class="material-symbols-outlined text-[22px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label-lg text-label-lg font-bold text-primary flex items-center gap-1">
+                    4.9 / 5.0
+                    <span class="flex text-secondary-container">
+                      <span class="material-symbols-outlined text-[14px]"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    </span>
+                  </span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">Avaliação consolidada dos tutores de
+                    Roraima</span>
+                </div>
+              </div>
+              <!-- Floating Badge 2: +1.200 Pets Atendidos -->
+              <div
+                class="w-full max-w-sm sm:w-auto mt-3 sm:self-end sm:-mr-8 z-20 bg-primary-container text-on-primary p-3.5 rounded-xl shadow-lg flex items-center gap-3 transform hover:-translate-y-1 transition-transform">
+                <div
+                  class="w-10 h-10 rounded-full bg-tertiary-fixed/20 flex items-center justify-center text-tertiary-fixed shrink-0">
+                  <span class="material-symbols-outlined text-[22px]">vital_signs</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-title-lg text-title-lg font-bold tracking-tight text-white">+1.200 Pets
+                    Atendidos</span>
+                  <span class="font-label-sm text-label-sm text-on-primary-container">Histórico de reabilitação e
+                    carinho</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION: SERVICES & CLINICAL BENEFITS -->
+      <section class="w-full py-16 bg-surface-container-low/60 relative">
+        <div class="max-w-7xl mx-auto px-gutter">
+          <!-- Section Header -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+            <div class="flex flex-col gap-2 max-w-2xl">
+              <div
+                class="inline-flex items-center gap-2 text-secondary font-label-md text-label-md uppercase tracking-wider font-bold">
+                <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                Especialidades &amp; Atendimento Clínico
+              </div>
+              <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">
+                Tudo o que seu companheiro precisa em um só lugar
+              </h2>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="font-body-md text-body-md text-on-surface-variant">Supervisão técnica de mestres e doutores
+                veterinários</span>
+            </div>
+          </div>
+          <!-- Services Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Service Card 1 -->
+            <div
+              class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div
+                  class="w-14 h-14 rounded-xl bg-primary-fixed/30 text-primary-container flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[30px]">stethoscope</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-2">Consultas &amp; Preventivos
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                  Avaliação clínica minuciosa, check-ups de rotina e acompanhamento geriátrico e pediátrico animal com
+                  acolhimento.
+                </p>
+              </div>
+              <div class="pt-4 flex items-center justify-between">
+                <span
+                  class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Agendamento
+                  Diário</span>
+                <span
+                  class="material-symbols-outlined text-secondary text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+            </div>
+            <!-- Service Card 2 -->
+            <div
+              class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div
+                  class="w-14 h-14 rounded-xl bg-secondary-fixed/50 text-on-secondary-fixed flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[30px]">vaccines</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-2">Vacinação Completa</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                  Protocolos imunológicos atualizados (V8/V10, Antirrábica, Giárdia, Gripe Canina e Quádrupla/Quíntupla
+                  Felina).
+                </p>
+              </div>
+              <div class="pt-4 flex items-center justify-between">
+                <span
+                  class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Carteirinha
+                  Digital</span>
+                <span
+                  class="material-symbols-outlined text-secondary text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+            </div>
+            <!-- Service Card 3 -->
+            <div
+              class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-all border border-transparent flex flex-col justify-between group">
+              <div>
+                <div
+                  class="w-14 h-14 rounded-xl bg-primary-fixed/40 text-primary-container flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[30px]">biotech</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-2">Exames Laboratoriais</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                  Hemogramas rápidos, dosagens bioquímicas, citologias, testes rápidos de leishmaniose e parasitologia
+                  in loco.
+                </p>
+              </div>
+              <div class="pt-4 flex items-center justify-between">
+                <span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Resultados
+                  no Portal</span>
+                <span
+                  class="material-symbols-outlined text-secondary text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+            </div>
+            <!-- Service Card 4 -->
+            <div
+              class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div
+                  class="w-14 h-14 rounded-xl bg-secondary-fixed/30 text-secondary flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[30px]">emergency</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-2">Urgência &amp; Bem-estar</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                  Triagem qualificada para casos agudos com retaguarda técnica e orientações nutricionais e
+                  comportamentais personalizadas.
+                </p>
+              </div>
+              <div class="pt-4 flex items-center justify-between">
+                <span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Plantão
+                  Acadêmico</span>
+                <span
+                  class="material-symbols-outlined text-secondary text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION: LOCATION & CONTACT (ITEAM RR - BOA VISTA/RR) WITH DEEP BOTANICAL GREEN SLAB -->
+      <section class="w-full bg-primary-container text-on-primary py-20 relative overflow-hidden">
+        <!-- Subtle Organic Pattern SVG Decor -->
+        <div class="absolute top-0 right-0 w-96 h-96 opacity-5 pointer-events-none">
+          <svg fill="currentColor" viewbox="0 0 200 200">
+            <path
+              d="M45,-76.3C58.3,-69.5,69,-57.4,76.5,-43.8C84,-30.2,88.3,-15.1,87.3,-0.6C86.3,13.9,80.1,27.8,71.7,39.8C63.2,51.8,52.7,62,40.1,68.9C27.5,75.8,13.8,79.5,-0.6,80.5C-14.9,81.5,-29.9,79.8,-42.9,73.1C-56,66.4,-67.2,54.7,-74.6,41.2C-82.1,27.8,-85.7,13.9,-84.4,0.7C-83.2,-12.4,-77,-24.8,-68.8,-35.8C-60.6,-46.8,-50.3,-56.3,-38.4,-63.9C-26.4,-71.4,-13.2,-77,1,-78.7C15.2,-80.4,31.7,-83.1,45,-76.3Z"
+              transform="translate(100 100)"></path>
+          </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-gutter relative z-10">
+          <!-- Section Header -->
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-fixed/20 text-tertiary-fixed font-label-md text-label-md uppercase tracking-wider font-semibold mb-3">
+              <span class="material-symbols-outlined text-[16px]">location_on</span>
+              LOCALIZAÇÃO &amp; CONTATO • ITEAM RR
+            </span>
+            <h2
+              class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-primary font-extrabold mb-4">
+              Estrutura moderna e acolhedora em Boa Vista - Roraima
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-primary-container">
+              Projetada com conforto térmico, áreas calmas para felinos e amplo espaço para recepcionar você e seu fiel
+              companheiro com a tranquilidade que ele merece.
+            </p>
+          </div>
+          <!-- Information Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1: Onde Estamos -->
+            <div
+              class="bg-surface-container-lowest text-on-surface p-8 rounded-xl shadow-xl flex flex-col justify-between">
+              <div class="flex flex-col gap-4">
+                <div class="w-12 h-12 rounded-lg bg-primary-fixed/40 text-primary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-[28px]">explore</span>
+                </div>
+                <div>
+                  <h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-1">Onde Estamos</h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant font-medium">
+                    Campus ITEAM RR, Av. Capitão Ene Garcez, s/n - Aeroporto, Boa Vista - RR, CEP 69310-000
+                  </p>
+                </div>
+                <div
+                  class="p-3 bg-surface-container-low rounded-lg flex items-center gap-2 text-primary font-label-md text-label-md">
+                  <span class="material-symbols-outlined text-[18px] text-secondary">local_parking</span>
+                  <span>Fácil acesso com estacionamento exclusivo para tutores</span>
+                </div>
+              </div>
+              <div class="pt-6">
+                <button
+                  class="w-full h-11 bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold"
+                  onclick="window.open('https://maps.google.com/?q=Boa+Vista+Roraima', '_blank')" type="button">
+                  <span class="material-symbols-outlined text-[18px]">map</span>
+                  <span>Abrir no Mapa</span>
+                </button>
+              </div>
+            </div>
+            <!-- Card 2: Canais de Atendimento -->
+            <div
+              class="bg-surface-container-lowest text-on-surface p-8 rounded-xl shadow-xl flex flex-col justify-between">
+              <div class="flex flex-col gap-4">
+                <div
+                  class="w-12 h-12 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+                  <span class="material-symbols-outlined text-[28px]">support_agent</span>
+                </div>
+                <div>
+                  <h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-1">Canais de Atendimento</h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    Tire dúvidas sobre triagem, agende retorno ou fale com nossa equipe de enfermagem veterinária.
+                  </p>
+                </div>
+                <div class="flex flex-col gap-2 font-body-md text-body-md text-on-surface">
+                  <div class="flex items-center gap-2.5">
+                    <span class="material-symbols-outlined text-[18px] text-secondary">phone</span>
+                    <span class="font-semibold">(95) 99123-4567</span>
+                  </div>
+                  <div class="flex items-center gap-2.5">
+                    <span class="material-symbols-outlined text-[18px] text-secondary">mail</span>
+                    <span
+                      class="text-xs break-all text-on-surface-variant">contato@clinicapet-iteamrr.example.com</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-6">
+                <a class="w-full h-11 bg-secondary-container hover:bg-secondary-container/90 text-on-secondary font-label-lg text-label-lg rounded-lg transition-colors flex items-center justify-center gap-2 font-bold shadow-sm"
+                  href="https://wa.me/5595991234567" target="_blank">
+                  <span class="material-symbols-outlined text-[18px]">chat</span>
+                  <span>Chamar no WhatsApp</span>
+                </a>
+              </div>
+            </div>
+            <!-- Card 3: Horários de Funcionamento -->
+            <div
+              class="bg-surface-container-lowest text-on-surface p-8 rounded-xl shadow-xl flex flex-col justify-between">
+              <div class="flex flex-col gap-4">
+                <div class="w-12 h-12 rounded-lg bg-primary-fixed/40 text-primary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-[28px]">schedule</span>
+                </div>
+                <div>
+                  <h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-1">Horários de Atendimento</h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    Atendimento por agendamento prévio no portal e ordem de chegada para triagens:
+                  </p>
+                </div>
+                <div class="flex flex-col gap-2 font-body-sm text-body-sm">
+                  <div class="flex justify-between items-center py-1">
+                    <span class="text-on-surface-variant">Segunda a Sexta:</span>
+                    <span class="font-bold text-primary">07h30 às 19h00</span>
+                  </div>
+                  <div class="flex justify-between items-center py-1">
+                    <span class="text-on-surface-variant">Sábados:</span>
+                    <span class="font-bold text-primary">08h00 às 14h00</span>
+                  </div>
+                  <div class="p-2.5 rounded bg-secondary-fixed/30 text-on-secondary-fixed flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[16px] text-secondary">notifications_active</span>
+                    <span class="font-semibold text-xs">Plantão de emergências cadastradas: 24h</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-6">
+                <button
+                  class="w-full h-11 bg-surface-container-high hover:bg-surface-container text-primary font-label-lg text-label-lg rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold"
+                  onclick="window.scrollTo({top: 0, behavior: 'smooth'})" type="button">
+                  <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                  <span>Ver Horários Livres</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION: REVIEWS / WHAT PET GUARDIANS SAY -->
+      <section class="w-full py-20 bg-surface relative overflow-hidden">
+        <!-- Subtle Paw Decorative Markers -->
+        <div class="absolute top-8 left-10 text-primary/5 hidden md:block">
+          <span class="material-symbols-outlined text-[64px]" style="font-variation-settings: 'FILL' 1;">pets</span>
+        </div>
+        <div class="absolute bottom-8 right-12 text-secondary-container/10 hidden md:block">
+          <span class="material-symbols-outlined text-[72px]" style="font-variation-settings: 'FILL' 1;">pets</span>
+        </div>
+        <div class="max-w-7xl mx-auto px-gutter relative z-10">
+          <!-- Section Title -->
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <div
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/40 text-on-secondary-fixed font-label-md text-label-md font-semibold mb-3">
+              <span class="material-symbols-outlined text-[16px]"
+                style="font-variation-settings: 'FILL' 1;">favorite</span>
+              Histórias de Confiança e Amor
+            </div>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-extrabold mb-3">
+              O QUE OS TUTORES DIZEM SOBRE NÓS
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">
+              Cada paciente de quatro patas é tratado como membro da nossa própria família. Conheça a experiência de
+              quem confia no ITEAM RR.
+            </p>
+          </div>
+          <!-- Testimonial Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Review 1: Floquinho (Beagle) -->
+            <div
+              class="bg-surface-container-lowest p-7 rounded-2xl shadow-[0_4px_20px_-4px_rgba(22,56,44,0.06)] flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
+              <div>
+                <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center gap-3">
+                    <img alt="Beagle alegre e saudável paciente da Clínica Pet"
+                      class="w-14 h-14 rounded-full object-cover shadow-sm"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0fg2CFqcNuZXNSKgKun0VhsFDydFOd-n8u7dVyLgw8IfgGx5lJ3AKc2s4AQMQZaWII0h7YaJe1r_Sw03Y_5i_tJZaOyUMCCKunn74RJvC58AEfOERS8KpEQgddHDV898gi3Pq--UE5qYCjg1BslcXEYBW3WQTq-fhRqLVL8-JhckBexgK5Z_a7u-pFQJ3Zp8H3Gk93qezctZ3qxy7fhOhNA8JCl_dBFPCGLABzDdp" />
+                    <div class="flex flex-col">
+                      <span class="font-title-lg text-title-lg text-primary font-bold leading-tight">Floquinho</span>
+                      <span class="font-label-sm text-label-sm text-on-surface-variant">Beagle, 3 anos</span>
+                    </div>
+                  </div>
+                  <div class="p-2 rounded-full bg-secondary-fixed/30 text-secondary-container">
+                    <span class="material-symbols-outlined text-[20px]"
+                      style="font-variation-settings: 'FILL' 1;">pets</span>
+                  </div>
+                </div>
+                <!-- Star Rating -->
+                <div class="flex items-center gap-1 text-secondary-container mb-4">
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="font-label-md text-label-md text-primary font-bold ml-1.5">5.0</span>
+                </div>
+                <!-- Quote -->
+                <p class="font-body-md text-body-md text-on-surface-variant italic mb-6">
+                  "A equipe da Clínica Pet no ITEAM RR foi impecável no atendimento do Floquinho! Ele tinha muito medo
+                  de veterinário, mas aqui foi acolhido com tanto carinho que nem percebeu a consulta e as vacinas.
+                  Parabéns pelo projeto!"
+                </p>
+              </div>
+              <div class="pt-4">
+                <span class="font-label-md text-label-md text-primary font-bold block">Mariana Vasconcelos</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Tutora em Boa Vista/RR</span>
+              </div>
+            </div>
+            <!-- Review 2: Luna (Gata SRD) -->
+            <div
+              class="bg-surface-container-lowest p-7 rounded-2xl shadow-[0_4px_20px_-4px_rgba(22,56,44,0.06)] flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
+              <div>
+                <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center gap-3">
+                    <img alt="Gatinho rajado saudável paciente da Clínica Pet"
+                      class="w-14 h-14 rounded-full object-cover shadow-sm"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFpsnrYRe5h6c2l2-4wsAQ_4mfE4v2CG4g-e8t1NkjarUvxeuJcJR49oQG-myhOYxfhxnUnRN-qd8uER4WgNBr9BCcadkTixOCGOMN3SttO8K52BEGqr5n8v-XTuDBJBQb-yFGxx0HCz48-OYnOYyi_buXcqbWYEcjKkzaPkwG9aLCoKJoCjXmu7GqpEN4cmIosoL5Kzrx4Wf7mH62T6qYEL7aW5SIj4CWJHHrL07-" />
+                    <div class="flex flex-col">
+                      <span class="font-title-lg text-title-lg text-primary font-bold leading-tight">Luna</span>
+                      <span class="font-label-sm text-label-sm text-on-surface-variant">Gata SRD, 2 anos</span>
+                    </div>
+                  </div>
+                  <div class="p-2 rounded-full bg-primary-fixed/30 text-primary-container">
+                    <span class="material-symbols-outlined text-[20px]"
+                      style="font-variation-settings: 'FILL' 1;">pets</span>
+                  </div>
+                </div>
+                <!-- Star Rating -->
+                <div class="flex items-center gap-1 text-secondary-container mb-4">
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="font-label-md text-label-md text-primary font-bold ml-1.5">5.0</span>
+                </div>
+                <!-- Quote -->
+                <p class="font-body-md text-body-md text-on-surface-variant italic mb-6">
+                  "O acompanhamento preventivo da Luna foi excelente. Exames rápidos, ambiente tranquilo e os
+                  profissionais explicam tudo nos mínimos detalhes. Recomendo para todos os tutores de Boa Vista."
+                </p>
+              </div>
+              <div class="pt-4">
+                <span class="font-label-md text-label-md text-primary font-bold block">Carlos Eduardo Mendes</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Tutor em Boa Vista/RR</span>
+              </div>
+            </div>
+            <!-- Review 3: Thor e Mel (Golden & Pet) -->
+            <div
+              class="bg-surface-container-lowest p-7 rounded-2xl shadow-[0_4px_20px_-4px_rgba(22,56,44,0.06)] flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
+              <div>
+                <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center gap-3">
+                    <img alt="Thor e Mel pacientes felizes da Clínica Pet"
+                      class="w-14 h-14 rounded-full object-cover shadow-sm"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGzdWypOIz-QMd5D4n8VUDfSBABv7bCmN6NyipcJAEdoYT-VkP5HGOj2JMvQCBtTDaJSd9mGyolVXosA00MecftgNitYoNW94dQySu0-ocLTLlmM2qEff7AVmDVLxvM3g9OEmkFcEduKZQXJ4SQjfgoZU60zLd9BXqf6K7C2MZk6Mtatzx14jB0Git4v16rrHqXt5SlvVvbUvy5ort4LJpkKBKWBJNPZ1zJlg00x6M" />
+                    <div class="flex flex-col">
+                      <span class="font-title-lg text-title-lg text-primary font-bold leading-tight">Thor &amp;
+                        Mel</span>
+                      <span class="font-label-sm text-label-sm text-on-surface-variant">Golden Retriever &amp;
+                        Felina</span>
+                    </div>
+                  </div>
+                  <div class="p-2 rounded-full bg-secondary-fixed/30 text-secondary-container">
+                    <span class="material-symbols-outlined text-[20px]"
+                      style="font-variation-settings: 'FILL' 1;">pets</span>
+                  </div>
+                </div>
+                <!-- Star Rating -->
+                <div class="flex items-center gap-1 text-secondary-container mb-4">
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="font-label-md text-label-md text-primary font-bold ml-1.5">5.0</span>
+                </div>
+                <!-- Quote -->
+                <p class="font-body-md text-body-md text-on-surface-variant italic mb-6">
+                  "Excelente iniciativa! O portal online facilitou demais o agendamento e o controle da carteirinha de
+                  vacinação dos meus dois pets. Atendimento nota 10!"
+                </p>
+              </div>
+              <div class="pt-4">
+                <span class="font-label-md text-label-md text-primary font-bold block">Dra. Beatriz Albuquerque</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Tutora do Thor e da Mel</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- FINAL CALL TO ACTION (CTA) BANNER -->
+      <section class="w-full pb-16 px-gutter bg-surface">
+        <div
+          class="max-w-7xl mx-auto rounded-3xl bg-primary-container text-on-primary p-8 md:p-14 relative overflow-hidden shadow-2xl">
+          <!-- Curved Ambient Gradients -->
+          <div
+            class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none">
+          </div>
+          <div
+            class="absolute -left-20 -top-20 w-80 h-80 rounded-full bg-tertiary-fixed/10 blur-3xl pointer-events-none">
+          </div>
+          <div
+            class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+            <div class="max-w-2xl flex flex-col gap-3">
+              <span class="font-label-md text-label-md text-secondary-fixed uppercase tracking-wider font-bold">Faça
+                parte do cuidado humanizado</span>
+              <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-extrabold text-white">
+                Seu pet merece o melhor atendimento em Roraima.
+              </h2>
+              <p class="font-body-lg text-body-lg text-on-primary-container">
+                Crie sua conta gratuita agora e agende sua visita em poucos cliques. Vacinas em dia, histórico digital e
+                assistência com amor.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3.5 shrink-0">
+              <button
+                class="h-12 px-7 bg-secondary-container hover:bg-secondary-container/90 text-on-secondary font-label-lg text-label-lg rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 font-bold"
+                onclick="switchAuthTab('register'); window.scrollTo({top: 0, behavior: 'smooth'});" type="button">
+                <span class="material-symbols-outlined text-[20px]">pets</span>
+                <span>Cadastrar Meu Pet Gratuitamente</span>
+              </button>
+              <button
+                class="h-12 px-6 bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary font-label-lg text-label-lg rounded-lg transition-colors flex items-center justify-center gap-2 font-semibold"
+                onclick="switchAuthTab('login'); window.scrollTo({top: 0, behavior: 'smooth'});" type="button">
+                <span>Já tenho conta</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Interactive Script for Tab Switching and Conditional Vet Field -->
+      <script>
+        function switchAuthTab(targetTab) {
+          const loginTabBtn = document.getElementById('btn-tab-login');
+          const registerTabBtn = document.getElementById('btn-tab-register');
+          const loginContent = document.getElementById('tab-login-content');
+          const registerContent = document.getElementById('tab-register-content');
+
+          if (!loginTabBtn || !registerTabBtn || !loginContent || !registerContent) return;
+
+          if (targetTab === 'login') {
+            // Activate Login
+            loginTabBtn.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high');
+            loginTabBtn.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+
+            registerTabBtn.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+            registerTabBtn.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high');
+
+            loginContent.classList.remove('hidden');
+            registerContent.classList.add('hidden');
+          } else {
+            // Activate Register
+            registerTabBtn.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high');
+            registerTabBtn.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+
+            loginTabBtn.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+            loginTabBtn.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high');
+
+            registerContent.classList.remove('hidden');
+            loginContent.classList.add('hidden');
+          }
+        }
+
+        function handleProfileChange(profile) {
+          const vetCodeContainer = document.getElementById('vet-code-container');
+          const labelTutor = document.getElementById('label-profile-tutor');
+          const labelVet = document.getElementById('label-profile-vet');
+
+          if (!vetCodeContainer || !labelTutor || !labelVet) return;
+
+          if (profile === 'vet') {
+            vetCodeContainer.classList.remove('hidden');
+            vetCodeContainer.classList.add('flex');
+
+            labelVet.classList.add('bg-primary-fixed/25', 'text-primary', 'border-2', 'border-primary-container');
+            labelVet.classList.remove('bg-surface-container-low', 'text-on-surface');
+
+            labelTutor.classList.remove('bg-primary-fixed/25', 'text-primary', 'border-2', 'border-primary-container');
+            labelTutor.classList.add('bg-surface-container-low', 'text-on-surface');
+          } else {
+            vetCodeContainer.classList.add('hidden');
+            vetCodeContainer.classList.remove('flex');
+
+            labelTutor.classList.add('bg-primary-fixed/25', 'text-primary', 'border-2', 'border-primary-container');
+            labelTutor.classList.remove('bg-surface-container-low', 'text-on-surface');
+
+            labelVet.classList.remove('bg-primary-fixed/25', 'text-primary', 'border-2', 'border-primary-container');
+            labelVet.classList.add('bg-surface-container-low', 'text-on-surface');
+          }
+        }
+
+        function togglePasswordVisibility(inputId, btn) {
+          const input = document.getElementById(inputId);
+          const icon = btn.querySelector('.material-symbols-outlined');
+          if (!input || !icon) return;
+
+          if (input.type === 'password') {
+            input.type = 'text';
+            icon.textContent = 'visibility_off';
+          } else {
+            input.type = 'password';
+            icon.textContent = 'visibility';
+          }
+        }
+      </script>
+    </div>
+  </main>
+  <footer class="w-full bg-primary-container text-on-primary pt-space-2xl pb-space-xl">
+    <div class="max-w-7xl mx-auto px-gutter">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl pb-space-2xl">
+        <div class="flex flex-col gap-space-md">
+          <div class="flex items-center gap-space-sm">
+            <div class="p-space-xs bg-surface-container-lowest/10 rounded-lg flex items-center justify-center"><span
+                class="material-symbols-outlined text-tertiary-fixed text-[24px]">pets</span></div>
+            <div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-primary font-bold">Clínica
+                Pet</span><span
+                class="font-label-sm text-label-sm text-on-primary-container tracking-wider uppercase">ITEAM RR • Boa
+                Vista</span></div>
+          </div>
+          <p class="font-body-sm text-body-sm text-surface-container-highest leading-relaxed">Projeto e iniciativa
+            acadêmica de atenção e bem-estar animal desenvolvida no Instituto Técnico Educacional da Amazônia (ITEAM
+            RR). Promovendo atendimento ético, acolhimento compassivo e excelência em formação médica veterinária.</p>
+          <div class="flex items-center gap-space-sm text-on-primary-container"><span
+              class="material-symbols-outlined text-[18px]">domain</span><span class="font-body-sm text-body-sm">Unidade
+              Acadêmica Central - Boa Vista/RR</span></div>
+        </div>
+        <div class="flex flex-col gap-space-md"><span
+            class="font-title-lg text-title-lg text-on-primary font-semibold">Links Rápidos</span>
+          <ul class="flex flex-col gap-space-sm">
+            <li class="flex items-center gap-space-xs"><span
+                class="material-symbols-outlined text-[16px] text-tertiary-fixed">chevron_right</span><a
+                class="font-body-md text-body-md text-surface-container-highest hover:text-on-primary transition-colors"
+                data-path="inicio" href="#">Início</a></li>
+            <li class="flex items-center gap-space-xs"><span
+                class="material-symbols-outlined text-[16px] text-tertiary-fixed">chevron_right</span><a
+                class="font-body-md text-body-md text-surface-container-highest hover:text-on-primary transition-colors"
+                data-path="acesso-tutor" href="#">Acesso Tutor</a></li>
+            <li class="flex items-center gap-space-xs"><span
+                class="material-symbols-outlined text-[16px] text-tertiary-fixed">chevron_right</span><a
+                class="font-body-md text-body-md text-surface-container-highest hover:text-on-primary transition-colors"
+                data-path="acesso-veterinario" href="#">Acesso Veterinário</a></li>
+            <li class="flex items-center gap-space-xs"><span
+                class="material-symbols-outlined text-[16px] text-tertiary-fixed">chevron_right</span><a
+                class="font-body-md text-body-md text-surface-container-highest hover:text-on-primary transition-colors"
+                data-path="agendamentos" href="#">Agendamentos</a></li>
+            <li class="flex items-center gap-space-xs"><span
+                class="material-symbols-outlined text-[16px] text-tertiary-fixed">chevron_right</span><a
+                class="font-body-md text-body-md text-surface-container-highest hover:text-on-primary transition-colors"
+                data-path="avaliacoes" href="#">Avaliações</a></li>
+          </ul>
+        </div>
+        <div class="flex flex-col gap-space-md"><span
+            class="font-title-lg text-title-lg text-on-primary font-semibold">Horários de Atendimento</span>
+          <div class="flex flex-col gap-space-sm font-body-sm text-body-sm text-surface-container-highest">
+            <div class="flex flex-col"><span class="font-label-md text-label-md text-on-primary">Triagem e
+                Ambulatório</span><span>Segunda a Sexta: 07h30 às 18h00</span></div>
+            <div class="flex flex-col"><span class="font-label-md text-label-md text-on-primary">Sábados
+                Letivos</span><span>08h00 às 12h30</span></div>
+            <div
+              class="flex items-center gap-space-xs p-space-sm bg-surface-container-lowest/5 rounded-lg text-secondary-fixed">
+              <span class="material-symbols-outlined text-[18px]">schedule</span><span>Casos de Urgência sob Supervisão
+                Docente</span></div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-space-md"><span
+            class="font-title-lg text-title-lg text-on-primary font-semibold">Informações de Contato</span>
+          <div class="flex flex-col gap-space-sm font-body-sm text-body-sm text-surface-container-highest">
+            <div class="flex items-start gap-space-sm"><span
+                class="material-symbols-outlined text-tertiary-fixed text-[20px]">location_on</span><span>Av. Ville Roy,
+                4520 - Caçari, Boa Vista - RR, 69307-025</span></div>
+            <div class="flex items-center gap-space-sm"><span
+                class="material-symbols-outlined text-tertiary-fixed text-[20px]">call</span><span>(95) 3623-0000 / (95)
+                98100-PETS</span></div>
+            <div class="flex items-center gap-space-sm"><span
+                class="material-symbols-outlined text-tertiary-fixed text-[20px]">mail</span><span>clinicapet@iteamrr.edu.br</span>
+            </div>
+            <div class="flex items-center gap-space-sm"><span
+                class="material-symbols-outlined text-tertiary-fixed text-[20px]">school</span><span>Supervisão:
+                Coordenação de Saúde &amp; Veterinária ITEAM</span></div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md bg-surface-container-lowest/5 p-space-lg rounded-xl">
+        <div class="font-body-sm text-body-sm text-on-primary-container text-center md:text-left"><span>© 2025 Clínica
+            Pet - ITEAM RR. Todos os direitos reservados. Ambiente educacional e ambulatorial de extensão universitária
+            em Boa Vista/RR.</span></div>
+        <div class="flex items-center gap-space-md font-label-sm text-label-sm text-surface-container-highest"><a
+            class="hover:text-on-primary transition-colors" data-path="termos" href="#">Termos de Uso</a><span
+            class="text-outline-variant">•</span><a class="hover:text-on-primary transition-colors"
+            data-path="privacidade" href="#">Política de Privacidade</a><span class="text-outline-variant">•</span><a
+            class="hover:text-on-primary transition-colors" data-path="etica-animal" href="#">Comitê de Ética Animal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

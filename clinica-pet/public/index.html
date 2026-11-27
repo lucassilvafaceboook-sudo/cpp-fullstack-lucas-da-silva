@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clínica Pet • ITEAM RR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-papel="">
+  <!-- Faixa institucional exibida no acesso e para o tutor (oculta para a rotina do veterinário) -->
+  <div class="faixa-topo nao-vet">
+    <span>🐾 Atendimento Ambulatorial &amp; Preventivo • <strong>ITEAM RR — Boa Vista/RR</strong></span>
+    <span class="ponto-separador" aria-hidden="true"></span>
+    <span class="faixa-detalhe">Agendamento rápido e acompanhamento digital para tutores</span>
+  </div>
+
+  <header class="topo">
+    <div class="marca">
+      <span class="marca-icone" aria-hidden="true">🐾</span>
+      <div class="marca-textos">
+        <h1>Clínica Pet</h1>
+        <span class="marca-sub">ITEAM RR • Boa Vista <strong class="so-vet">· Área Clínica</strong></span>
+      </div>
+    </div>
+
+    <nav class="so-logado" aria-label="Navegação principal">
+      <button type="button" class="aba ativa" data-aba="pets"><span class="so-cliente">Meus pets</span><span
+          class="so-vet">Pets</span></button>
+      <button type="button" class="aba" data-aba="atendimentos">Atendimentos</button>
+      <button type="button" class="aba so-vet" data-aba="tutores">Tutores</button>
+      <button type="button" class="aba atalho-secao so-cliente" data-ir-secao="secao-localizacao">Localização</button>
+      <button type="button" class="aba atalho-secao so-cliente" data-ir-secao="secao-contato">Contato</button>
+      <button type="button" class="aba atalho-secao so-cliente" data-ir-secao="secao-avaliacoes">Avaliações</button>
+    </nav>
+
+    <div class="usuario so-logado">
+      <button type="button" class="pequeno btn-laranja so-cliente" data-acao-pedir>+ Pedir atendimento</button>
+      <span id="quem"></span>
+      <button type="button" id="sair" class="pequeno aba">Sair</button>
+    </div>
+
+    <div class="selo-visitante so-deslogado">
+      <span>Portal Digital • Boa Vista/RR</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ LOGIN / CADASTRO ============ -->
+    <section id="tela-auth" class="auth" hidden>
+      <div class="auth-grade">
+        <div class="auth-principal">
+          <div class="selo-topo-auth">
+            <span aria-hidden="true">🐾</span>
+            <span>Cuidado de Excelência • ITEAM RR</span>
+          </div>
+          <h2 class="auth-titulo">Cuidado e saúde para o seu pet</h2>
+          <p class="auth-descricao">
+            O bem-estar e a vitalidade do seu melhor amigo em mãos que amam animais.
+            Entre ou crie sua conta para cadastrar pets, solicitar consultas ou vacinas e acompanhar o retorno clínico.
+          </p>
+
+          <div class="auth-cartao">
+            <div class="auth-abas">
+              <button type="button" class="auth-aba ativa" data-auth="login">Entrar</button>
+              <button type="button" class="auth-aba" data-auth="registro">Criar conta</button>
+            </div>
+
+            <form id="form-login" novalidate>
+              <div class="auth-form-topo">
+                <strong>Acesse seu painel</strong>
+                <span class="etiqueta-suave">Acesso rápido</span>
+              </div>
+              <label>E-mail
+                <input name="email" type="email" autocomplete="username" placeholder="exemplo@email.com" required>
+              </label>
+              <label>Senha
+                <span class="campo-senha">
+                  <input name="senha" type="password" autocomplete="current-password" placeholder="Sua senha" required>
+                  <button type="button" class="btn-olho" data-ver-senha
+                    aria-label="Mostrar ou ocultar senha">Mostrar</button>
+                </span>
+              </label>
+              <p class="erro-geral" hidden></p>
+              <button class="primario btn-cta-auth">Entrar na Minha Conta →</button>
+              <p class="auth-rodape-link">
+                Ainda não tem cadastro?
+                <button type="button" class="link-acao" data-auth="registro">Criar conta gratuita</button>
+              </p>
+            </form>
+
+            <form id="form-registro" novalidate hidden>
+              <div class="auth-form-topo empilhado">
+                <strong>Novo cadastro na Clínica Pet</strong>
+                <span>Selecione seu perfil de acesso no portal:</span>
+              </div>
+
+              <fieldset class="escolha">
+                <legend>Tipo de conta</legend>
+                <label class="opcao cartao-papel selecionado">
+                  <input type="radio" name="papel" value="cliente" checked>
+                  <span class="papel-conteudo">
+                    <b>🐾 Sou tutor de um pet</b>
+                    <small>Cadastrar pets e pedir atendimento</small>
+                  </span>
+                </label>
+                <label class="opcao cartao-papel">
+                  <input type="radio" name="papel" value="veterinario">
+                  <span class="papel-conteudo">
+                    <b>🩺 Sou da clínica (veterinário)</b>
+                    <small>Corpo clínico e gestão de fila</small>
+                  </span>
+                </label>
+              </fieldset>
+
+              <div class="dupla-auth">
+                <label>Nome*
+                  <input name="nome" maxlength="100" autocomplete="name" placeholder="Seu nome completo" required>
+                </label>
+                <label class="reg-cliente">Telefone*
+                  <input name="telefone" maxlength="20" placeholder="(95) 99123-4567">
+                </label>
+              </div>
+
+              <label>E-mail*
+                <input name="email" type="email" maxlength="120" autocomplete="email" placeholder="voce@exemplo.com"
+                  required>
+              </label>
+
+              <label>Senha*
+                <span class="campo-senha">
+                  <input name="senha" type="password" minlength="6" autocomplete="new-password"
+                    placeholder="Mínimo de 6 caracteres" required>
+                  <button type="button" class="btn-olho" data-ver-senha
+                    aria-label="Mostrar ou ocultar senha">Mostrar</button>
+                </span>
+                <span class="dica">Mínimo de 6 caracteres.</span>
+              </label>
+
+              <label class="reg-vet caixa-codigo" hidden>Código da clínica*
+                <input name="codigo_clinica" autocomplete="off" placeholder="Ex.: ***-****">
+                <span class="dica">Fornecido pela administração da clínica.</span>
+              </label>
+
+              <p class="erro-geral" hidden></p>
+              <button class="primario btn-cta-auth">Criar conta</button>
+              <p class="auth-rodape-link">
+                Já possui conta cadastrada?
+                <button type="button" class="link-acao" data-auth="login">Fazer login</button>
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Coluna visual inspirada na referência Stitch -->
+        <aside class="auth-vitrine" aria-label="Destaques da Clínica Pet ITEAM RR">
+          <div class="vitrine-moldura">
+            <img id="img-hero-auth"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGzdWypOIz-QMd5D4n8VUDfSBABv7bCmN6NyipcJAEdoYT-VkP5HGOj2JMvQCBtTDaJSd9mGyolVXosA00MecftgNitYoNW94dQySu0-ocLTLlmM2qEff7AVmDVLxvM3g9OEmkFcEduKZQXJ4SQjfgoZU60zLd9BXqf6K7C2MZk6Mtatzx14jB0Git4v16rrHqXt5SlvVvbUvy5ort4LJpkKBKWBJNPZ1zJlg00x6M"
+              data-fallback="dupla"
+              alt="Cachorro Golden Retriever e gato juntos representando o cuidado na Clínica Pet ITEAM RR">
+            <div class="vitrine-legenda">
+              <span class="vitrine-selo">✓ Cuidado Integral em Família</span>
+              <span>ITEAM RR</span>
+            </div>
+          </div>
+
+          <div class="vitrine-card vitrine-card-nota">
+            <div class="vitrine-icone laranja" aria-hidden="true">★</div>
+            <div>
+              <strong>4.9 / 5.0 <span class="estrelas-inline" aria-hidden="true">★★★★★</span></strong>
+              <span>Avaliação consolidada dos tutores em Boa Vista/RR</span>
+            </div>
+          </div>
+
+          <div class="vitrine-card vitrine-card-verde">
+            <div class="vitrine-icone menta" aria-hidden="true">🩺</div>
+            <div>
+              <strong>+1.200 Pets Atendidos</strong>
+              <span>Consultas preventivas, vacinação e acolhimento</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ PAINEL HIERÁRQUICO DO TUTOR (APENAS CLIENTE) ============ -->
+    <section id="painel-tutor" class="painel-tutor so-logado so-cliente" aria-label="Resumo e ações rápidas do tutor">
+      <div class="painel-tutor-topo">
+        <div class="painel-tutor-boasvindas">
+          <span class="selo-painel">Portal do Tutor • ITEAM RR</span>
+          <h2>Olá, <span id="nome-tutor-painel">Tutor(a)</span>!</h2>
+          <p>
+            Acompanhe seus pets cadastrados, envie pedidos de consulta ou vacinação e confira o retorno da nossa equipe
+            veterinária em Boa Vista/RR.
+          </p>
+        </div>
+        <div class="painel-tutor-metricas">
+          <div class="metrica-tutor">
+            <b id="tutor-total-pets">0</b>
+            <span>Meus pets</span>
+          </div>
+          <div class="metrica-tutor destaque">
+            <b id="tutor-total-aguardando">0</b>
+            <span>Aguardando</span>
+          </div>
+          <div class="metrica-tutor">
+            <b id="tutor-total-concluidos">0</b>
+            <span>Concluídos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="acoes-rapidas-tutor">
+        <article class="cartao-acao-tutor" data-painel-aba="pets">
+          <div class="acao-cabecalho">
+            <span class="acao-icone verde" aria-hidden="true">🐾</span>
+            <span class="acao-etapa">1 · Cadastro e ficha</span>
+          </div>
+          <h3>Meus pets</h3>
+          <p>Cadastre seus animais de estimação, mantenha o peso em dia e gerencie os dados de nascimento e raça.</p>
+          <div class="acao-botoes">
+            <button type="button" class="pequeno" data-aba="pets">Ver meus pets</button>
+            <button type="button" class="pequeno primario" data-acao-novo-pet>+ Novo pet</button>
+          </div>
+        </article>
+
+        <article class="cartao-acao-tutor destaque-laranja">
+          <div class="acao-cabecalho">
+            <span class="acao-icone laranja" aria-hidden="true">💉</span>
+            <span class="acao-etapa">2 · Solicitação rápida</span>
+          </div>
+          <h3>Pedir atendimento</h3>
+          <p>Seu pet precisa de consulta por sintomas ou vacinação? Envie o pedido online direto para a triagem.</p>
+          <div class="acao-botoes">
+            <button type="button" class="btn-laranja" data-acao-pedir>+ Pedir atendimento agora</button>
+          </div>
+        </article>
+
+        <article class="cartao-acao-tutor" data-painel-aba="atendimentos">
+          <div class="acao-cabecalho">
+            <span class="acao-icone verde" aria-hidden="true">📋</span>
+            <span class="acao-etapa">3 · Histórico clínico</span>
+          </div>
+          <h3>Atendimentos</h3>
+          <p>Consulte solicitações em fila de espera e leia as recomendações registradas pelo veterinário.</p>
+          <div class="acao-botoes">
+            <button type="button" class="pequeno" data-aba="atendimentos">Ver atendimentos</button>
+            <button type="button" class="pequeno" data-ir-secao="secao-avaliacoes">Avaliar clínica</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PETS ============ -->
+    <section id="aba-pets" class="bloco-operacional so-logado">
+      <div class="cabecalho-secao so-cliente">
+        <div>
+          <h2>Meus pets cadastrados</h2>
+          <p>Selecione “Pedir atendimento” na linha do pet para abrir uma solicitação já vinculada a ele.</p>
+        </div>
+      </div>
+
+      <div class="cabecalho-secao so-vet">
+        <div>
+          <h2>Pacientes cadastrados</h2>
+          <p>Controle operacional de pets, tutores responsáveis e histórico de atendimento.</p>
+        </div>
+      </div>
+
+      <div id="resumo" class="resumo so-vet"></div>
+
+      <div class="barra">
+        <input id="busca" type="search" placeholder="Buscar por nome ou raça…">
+        <select id="filtro-especie">
+          <option value="">Todas as espécies</option>
+        </select>
+        <select id="filtro-tutor" class="so-vet">
+          <option value="">Todos os tutores</option>
+        </select>
+        <button type="button" id="novo-pet" class="primario">+ Novo pet</button>
+      </div>
+
+      <div class="tabela-embrulho">
+        <table>
+          <thead>
+            <tr>
+              <th>Pet</th>
+              <th>Espécie</th>
+              <th>Raça</th>
+              <th>Nascimento</th>
+              <th>Idade</th>
+              <th>Peso</th>
+              <th class="so-vet">Tutor</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="lista-pets"></tbody>
+        </table>
+        <p id="vazio-pets" class="vazio" hidden>Nenhum pet encontrado.</p>
+      </div>
+    </section>
+
+    <!-- ============ ATENDIMENTOS ============ -->
+    <section id="aba-atendimentos" class="bloco-operacional so-logado" hidden>
+      <div class="cabecalho-secao so-cliente">
+        <div>
+          <h2>Meus pedidos e histórico de atendimentos</h2>
+          <p>Alterne o filtro para visualizar pedidos em andamento ou atendimentos já concluídos com parecer
+            veterinário.</p>
+        </div>
+      </div>
+
+      <div class="cabecalho-secao so-vet">
+        <div>
+          <h2>Fila de atendimentos</h2>
+          <p>Visualize solicitações de consulta e vacinação e registre o parecer clínico.</p>
+        </div>
+      </div>
+
+      <div class="barra">
+        <select id="filtro-status">
+          <option value="">Todos</option>
+          <option value="aguardando" selected>Aguardando</option>
+          <option value="concluido">Concluídos</option>
+        </select>
+        <span class="espaco"></span>
+        <button type="button" id="novo-atendimento" class="primario btn-laranja so-cliente">+ Pedir atendimento</button>
+      </div>
+      <div id="lista-atendimentos" class="lista-atend"></div>
+      <p id="vazio-atendimentos" class="vazio" hidden>Nenhum atendimento aqui.</p>
+    </section>
+
+    <!-- ============ TUTORES (só clínica) ============ -->
+    <section id="aba-tutores" class="bloco-operacional so-logado so-vet" hidden>
+      <div class="cabecalho-secao so-vet">
+        <div>
+          <h2>Tutores cadastrados</h2>
+          <p>Gerencie os responsáveis vinculados aos pacientes da clínica.</p>
+        </div>
+      </div>
+
+      <div class="barra">
+        <button type="button" id="novo-tutor" class="primario">+ Novo tutor</button>
+      </div>
+      <div class="tabela-embrulho">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Telefone</th>
+              <th>E-mail</th>
+              <th>Pets</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="lista-tutores"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ ESPECIALIDADES, LOCALIZAÇÃO E CONTATO (APENAS TUTOR) ============ -->
+    <section class="vitrine-servicos so-logado so-cliente" aria-label="Especialidades de cuidado">
+      <div class="cabecalho-vitrine">
+        <span class="etiqueta-secao">● Especialidades &amp; Atendimento Clínico</span>
+        <h2>Tudo o que seu companheiro precisa em um só lugar</h2>
+      </div>
+      <div class="grade-servicos">
+        <article class="card-servico">
+          <span class="servico-icone verde" aria-hidden="true">🩺</span>
+          <h3>Consultas &amp; Preventivos</h3>
+          <p>Avaliação clínica cuidadosa, check-ups de rotina e orientação preventiva para todas as fases da vida.</p>
+        </article>
+        <article class="card-servico">
+          <span class="servico-icone laranja" aria-hidden="true">💉</span>
+          <h3>Vacinação Completa</h3>
+          <p>Protocolos atualizados para cães, gatos e pets diversos com registro organizado no histórico digital.</p>
+        </article>
+        <article class="card-servico">
+          <span class="servico-icone verde" aria-hidden="true">🔬</span>
+          <h3>Triagem &amp; Exames</h3>
+          <p>Apoio laboratorial e triagem ágil com supervisão técnica de docentes e médicos veterinários.</p>
+        </article>
+        <article class="card-servico">
+          <span class="servico-icone laranja" aria-hidden="true">💚</span>
+          <h3>Bem-estar Animal</h3>
+          <p>Ambiente climatizado em Boa Vista, manejo gentil e áreas tranquilas para reduzir o estresse dos pets.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="secao-localizacao" class="bloco-verde-institucional so-logado so-cliente"
+      aria-label="Localização e Contato ITEAM RR">
+      <div class="bloco-verde-cabecalho">
+        <span class="selo-painel">📍 Localização &amp; Contato • ITEAM RR</span>
+        <h2>Estrutura moderna e acolhedora em Boa Vista - Roraima</h2>
+        <p>
+          Conforto térmico, recepção humanizada e fácil acesso para receber você e seu pet com tranquilidade na capital
+          roraimense.
+        </p>
+      </div>
+
+      <div class="grade-institucional">
+        <!-- Localização -->
+        <article class="card-institucional">
+          <div>
+            <div class="inst-icone verde" aria-hidden="true">🗺️</div>
+            <h3>Onde Estamos</h3>
+            <p class="inst-destaque">
+              Unidade Clínica Pet — ITEAM RR<br>
+              Av. Capitão Ene Garcez, s/n - Aeroporto, Boa Vista - RR, CEP 69310-000
+            </p>
+            <div class="inst-nota">
+              <span aria-hidden="true">🅿️</span>
+              <span>Acesso facilitado e estacionamento exclusivo para tutores em atendimento.</span>
+            </div>
+          </div>
+          <a class="botao-link primario-escuro" href="https://maps.google.com/?q=Boa+Vista+Roraima" target="_blank"
+            rel="noopener noreferrer">
+            Abrir Boa Vista/RR no Mapa ↗
+          </a>
+        </article>
+
+        <!-- Contato -->
+        <article id="secao-contato" class="card-institucional">
+          <div>
+            <div class="inst-icone laranja" aria-hidden="true">📞</div>
+            <h3>Canais de Contato</h3>
+            <p>
+              Tire dúvidas sobre preparo para consultas, campanhas de vacinação ou retorno ambulatorial com nossa
+              recepção:
+            </p>
+            <ul class="lista-contatos">
+              <li><strong>WhatsApp / Celular:</strong> (95) 99123-4567 <span class="tag-ficticio">fictício</span></li>
+              <li><strong>Recepção Central:</strong> (95) 3623-4500 <span class="tag-ficticio">fictício</span></li>
+              <li><strong>E-mail:</strong> contato@clinicapet-iteamrr.example.com</li>
+            </ul>
+          </div>
+          <button type="button" class="btn-laranja largura-total" data-acao-pedir>
+            Solicitar Atendimento Online
+          </button>
+        </article>
+
+        <!-- Horários -->
+        <article class="card-institucional">
+          <div>
+            <div class="inst-icone verde" aria-hidden="true">🕒</div>
+            <h3>Horários de Funcionamento</h3>
+            <p>
+              Atendimento mediante solicitação pelo portal do tutor e triagem presencial supervisionada:
+            </p>
+            <div class="tabela-horarios">
+              <div><span>Segunda a Sexta</span><strong>07h30 às 19h00</strong></div>
+              <div><span>Sábados</span><strong>08h00 às 14h00</strong></div>
+              <div><span>Domingos e Feriados</span><strong>Fechado</strong></div>
+            </div>
+            <div class="inst-nota alerta-suave">
+              <span aria-hidden="true">🩺</span>
+              <span>Supervisão da Coordenação de Saúde &amp; Bem-estar Animal — ITEAM RR.</span>
+            </div>
+          </div>
+          <button type="button" class="secundario-borda largura-total" data-aba="atendimentos">
+            Consultar Meus Pedidos
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ AVALIAÇÕES DE CLIENTES (APENAS TUTOR) ============ -->
+    <section id="secao-avaliacoes" class="secao-avaliacoes so-logado so-cliente" aria-label="Avaliações de clientes">
+      <div class="avaliacoes-cabecalho">
+        <div>
+          <span class="etiqueta-secao">♥ Histórias de Confiança em Boa Vista/RR</span>
+          <h2>O que os tutores dizem sobre nós</h2>
+          <p>Confira os relatos dos tutores atendidos na Clínica Pet ITEAM RR e registre também a avaliação do seu
+            companheiro.</p>
+        </div>
+        <div id="resumo-avaliacoes" class="placar-avaliacoes" aria-live="polite">
+          <strong>★ 5.0</strong>
+          <span>3 avaliações</span>
+        </div>
+      </div>
+
+      <div class="avaliacoes-layout">
+        <!-- Formulário para o tutor enviar nova avaliação (persistência em localStorage) -->
+        <form id="form-avaliacao" class="cartao-nova-avaliacao" novalidate>
+          <h3>Avaliar atendimento</h3>
+          <p class="sub">Sua avaliação fica registrada neste navegador e ajuda a aprimorar o acolhimento no ITEAM RR.
+          </p>
+
+          <label id="bloco-escolher-pet-avaliacao" hidden>Preencher com um dos meus pets
+            <select id="avaliacao-meu-pet">
+              <option value="">Selecionar pet cadastrado (opcional)…</option>
+            </select>
+          </label>
+
+          <div class="dupla">
+            <label>Nome do pet*
+              <input name="pet_nome" maxlength="60" placeholder="Ex.: Floquinho" required>
+            </label>
+            <label>Espécie / Raça e idade
+              <input name="pet_detalhe" maxlength="60" placeholder="Ex.: Beagle, 3 anos">
+            </label>
+          </div>
+
+          <label>Sua nota*
+            <input type="hidden" name="nota" value="5">
+            <div class="seletor-estrelas" role="radiogroup" aria-label="Nota de 1 a 5 estrelas">
+              <button type="button" class="estrela-btn ativa" data-estrela="1" aria-label="1 estrela">★</button>
+              <button type="button" class="estrela-btn ativa" data-estrela="2" aria-label="2 estrelas">★</button>
+              <button type="button" class="estrela-btn ativa" data-estrela="3" aria-label="3 estrelas">★</button>
+              <button type="button" class="estrela-btn ativa" data-estrela="4" aria-label="4 estrelas">★</button>
+              <button type="button" class="estrela-btn ativa" data-estrela="5" aria-label="5 estrelas">★</button>
+              <span id="texto-nota-avaliacao" class="rotulo-nota">5.0 · Excelente</span>
+            </div>
+          </label>
+
+          <fieldset class="escolha-foto-pet">
+            <legend>Foto representativa do pet</legend>
+            <div class="opcoes-foto-pet">
+              <label class="opcao-foto selecionada">
+                <input type="radio" name="foto_chave" value="beagle" checked>
+                <img data-pet-thumb="beagle" alt="Cão Beagle">
+                <span>Cão</span>
+              </label>
+              <label class="opcao-foto">
+                <input type="radio" name="foto_chave" value="gato">
+                <img data-pet-thumb="gato" alt="Gato rajado">
+                <span>Gato</span>
+              </label>
+              <label class="opcao-foto">
+                <input type="radio" name="foto_chave" value="dupla">
+                <img data-pet-thumb="dupla" alt="Cão e gato">
+                <span>Dupla</span>
+              </label>
+              <label class="opcao-foto">
+                <input type="radio" name="foto_chave" value="exotico">
+                <img data-pet-thumb="exotico" alt="Ilustração pet">
+                <span>Outro pet</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label>Depoimento*
+            <textarea name="comentario" rows="3" maxlength="400"
+              placeholder="Conte como foi o atendimento do seu pet na Clínica Pet ITEAM RR…" required></textarea>
+          </label>
+
+          <p class="erro-geral" hidden></p>
+          <button class="primario btn-laranja largura-total">Publicar avaliação</button>
+        </form>
+
+        <!-- Lista de avaliações com fotos de pets -->
+        <div id="lista-avaliacoes" class="grade-avaliacoes"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape-tutor so-logado so-cliente">
+    <div class="rodape-interno">
+      <div>
+        <strong>🐾 Clínica Pet • ITEAM RR</strong>
+        <span>Unidade Acadêmica e Ambulatorial — Boa Vista, Roraima</span>
+      </div>
+      <div class="rodape-contatos">
+        <span>(95) 99123-4567</span>
+        <span>•</span>
+        <span>contato@clinicapet-iteamrr.example.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Formulário de pet -->
+  <dialog id="dlg-pet">
+    <form id="form-pet" novalidate>
+      <h2 id="titulo-pet">Novo pet</h2>
+      <label>Nome* <input name="nome" maxlength="60" required></label>
+      <label>Espécie* <select name="especie" required></select></label>
+      <label class="campo-raca">Raça
+        <span class="auto">
+          <input name="raca" maxlength="60" autocomplete="off" placeholder="Comece a digitar…" role="combobox"
+            aria-autocomplete="list" aria-expanded="false" aria-controls="sugestoes-raca">
+          <ul id="sugestoes-raca" class="sugestoes" role="listbox" hidden></ul>
+        </span>
+      </label>
+      <label class="opcao nao-sei"><input type="checkbox" id="raca-nao-sei"> Não sei a raça</label>
+      <div class="dupla">
+        <label>Mês de nascimento
+          <select name="mes_nascimento">
+            <option value="">Mês…</option>
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+          </select>
+        </label>
+        <label>Ano de nascimento <input name="ano_nascimento" type="number" min="1900" step="1"
+            placeholder="Ex.: 2021"></label>
+      </div>
+      <label>Peso (kg) <input name="peso_kg" type="number" step="0.01" min="0.01" max="999.99"></label>
+      <label class="so-vet">Tutor*
+        <span class="linha">
+          <select name="tutor_id"></select>
+          <button type="button" id="tutor-rapido" title="Cadastrar tutor novo">+ tutor</button>
+        </span>
+      </label>
+      <fieldset id="motivo-pet" class="motivo">
+        <legend>Motivo da visita<span class="so-cliente">*</span><span class="so-vet"> (opcional)</span></legend>
+        <label>O que o pet precisa?
+          <select name="tipo">
+            <option value="">Selecione…</option>
+            <option value="consulta">Consulta: ele está com sintomas</option>
+            <option value="vacina">Apenas vacinação</option>
+          </select>
+        </label>
+        <label class="campo-sintomas">Sintomas <textarea name="sintomas" rows="3" maxlength="1000"
+            placeholder="Ex.: está sem comer há 2 dias, vomitou ontem…"></textarea></label>
+      </fieldset>
+      <p class="erro-geral" hidden></p>
+      <div class="acoes">
+        <button type="button" data-fechar>Cancelar</button>
+        <button class="primario">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Pedido de atendimento -->
+  <dialog id="dlg-atendimento">
+    <form id="form-atendimento" novalidate>
+      <h2>Pedir atendimento</h2>
+      <label>Pet* <select name="pet_id"></select></label>
+      <label>O que o pet precisa?*
+        <select name="tipo">
+          <option value="">Selecione…</option>
+          <option value="consulta">Consulta: ele está com sintomas</option>
+          <option value="vacina">Apenas vacinação</option>
+        </select>
+      </label>
+      <label class="campo-sintomas">Sintomas <textarea name="sintomas" rows="4" maxlength="1000"
+          placeholder="Ex.: está sem comer há 2 dias, vomitou ontem…"></textarea></label>
+      <p class="erro-geral" hidden></p>
+      <div class="acoes">
+        <button type="button" data-fechar>Cancelar</button>
+        <button class="primario btn-laranja">Enviar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Registro do veterinário sobre o atendimento -->
+  <dialog id="dlg-concluir">
+    <form id="form-concluir" novalidate>
+      <h2 id="titulo-concluir">Atendimento</h2>
+      <p id="resumo-concluir" class="sub"></p>
+      <label>Situação
+        <select name="status">
+          <option value="aguardando">Aguardando</option>
+          <option value="concluido">Concluído</option>
+        </select>
+      </label>
+      <label>Observações do veterinário <textarea name="observacoes" rows="4" maxlength="2000"></textarea></label>
+      <p class="erro-geral" hidden></p>
+      <div class="acoes">
+        <button type="button" data-fechar>Cancelar</button>
+        <button class="primario">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Formulário de tutor -->
+  <dialog id="dlg-tutor">
+    <form id="form-tutor" novalidate>
+      <h2 id="titulo-tutor">Novo tutor</h2>
+      <label>Nome* <input name="nome" maxlength="100" required></label>
+      <label>Telefone* <input name="telefone" maxlength="20" required placeholder="(95) 99123-4567"></label>
+      <label>E-mail <input name="email" type="email" maxlength="120"></label>
+      <p class="erro-geral" hidden></p>
+      <div class="acoes">
+        <button type="button" data-fechar>Cancelar</button>
+        <button class="primario">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="aviso" class="aviso" hidden></div>
+
+  <script src="racas.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

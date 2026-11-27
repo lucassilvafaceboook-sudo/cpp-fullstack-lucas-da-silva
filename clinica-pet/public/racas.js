@@ -1,0 +1,75 @@
+// Sugestões de raça por espécie, usadas no autocompletar do formulário de pet.
+// É só uma ajuda para digitar: o campo continua aceitando qualquer nome.
+const RACAS = {
+  cachorro: [
+    "SRD (vira-lata)", "Akita", "Basset Hound", "Beagle", "Bernese", "Bichon Frisé", "Boiadeiro Australiano",
+    "Border Collie", "Boston Terrier", "Boxer", "Buldogue Francês", "Buldogue Inglês", "Bull Terrier",
+    "Cane Corso", "Cavalier King Charles Spaniel", "Chihuahua", "Chow Chow", "Cocker Spaniel",
+    "Collie", "Dachshund (Salsicha)", "Dálmata", "Dobermann", "Dogo Argentino", "Fila Brasileiro",
+    "Fox Paulistinha", "Golden Retriever", "Husky Siberiano", "Jack Russell Terrier", "Labrador",
+    "Lhasa Apso", "Lulu da Pomerânia", "Maltês", "Mastiff", "Pastor Alemão", "Pastor Belga",
+    "Pastor de Shetland", "Pequinês", "Pinscher", "Pit Bull", "Poodle", "Pug", "Rottweiler",
+    "São Bernardo", "Samoieda", "Schnauzer", "Shar-Pei", "Shiba Inu", "Shih Tzu", "Spitz Alemão",
+    "Staffordshire Bull Terrier", "Weimaraner", "West Highland White Terrier", "Whippet", "Yorkshire Terrier",
+  ],
+  gato: [
+    "SRD (sem raça definida)", "Abissínio", "Angorá", "Azul Russo", "Bengal", "Birmanês", "British Shorthair",
+    "Burmês", "Chartreux", "Cornish Rex", "Devon Rex", "Exótico", "Himalaio", "Maine Coon", "Manx",
+    "Munchkin", "Norueguês da Floresta", "Persa", "Ragdoll", "Sagrado da Birmânia", "Savannah",
+    "Scottish Fold", "Siamês", "Siberiano", "Sphynx", "Tonquinês",
+  ],
+  // ---- pequenos mamíferos
+  coelho: ["SRD (sem raça definida)", "Mini Lop", "Holland Lop", "Lionhead (Cabeça de Leão)", "Fuzzy Lop",
+    "Angorá", "Rex", "Mini Rex", "Hotot", "Netherland Dwarf (Anão Holandês)", "Nova Zelândia", "Gigante de Flandres"],
+  hamster: ["Sírio (Dourado)", "Anão Russo", "Anão Campbell", "Roborovski", "Chinês", "Teddy Bear (pelo longo)"],
+  porquinho_india: ["Inglês (pelo curto)", "Abissínio", "Peruano", "Sheltie", "Teddy", "Texel", "Skinny (sem pelo)", "Coronet"],
+  chinchila: ["Standard (cinza)", "Black Velvet", "Bege", "Branca (White Wilson)", "Violeta", "Ebony"],
+  furao: ["Sable", "Albino", "Champagne", "Prata", "Panda"],
+  rato: ["Twister", "Dumbo", "Rex", "Hairless (sem pelo)", "Husky"],
+  camundongo: ["Comum", "Satin", "Longhair (pelo longo)", "Rex"],
+  gerbil: ["Mongol", "Fat-tailed (cauda gorda)"],
+  ourico: ["Africano (pigmeu)"],
+  petauro: ["Clássico (cinza)", "Leucístico", "Mosaico", "Albino"],
+  // ---- aves
+  calopsita: ["Cinza (ancestral)", "Lutino", "Arlequim", "Pérola", "Canela", "Cara-branca", "Albina"],
+  periquito: ["Australiano", "Inglês", "Agapornis (inseparável)", "Ring Neck"],
+  papagaio: ["Papagaio-verdadeiro", "Papagaio-do-mangue", "Papagaio-cinzento (africano)", "Papagaio-charão",
+    "Papagaio-de-peito-roxo", "Maritaca", "Jandaia"],
+  arara: ["Arara-canindé", "Arara-vermelha", "Arara-azul", "Ararajuba"],
+  canario: ["Canário-belga", "Canário-da-terra", "Roller", "Gloster", "Frisado", "Calafate"],
+  galinha: ["Caipira", "Garnisé", "Índio Gigante", "Sedosa (Silkie)", "Brahma", "Polonesa", "Orpington", "Angola (galinha-d'angola)"],
+  pato: ["Pequim", "Mandarim", "Marreco", "Corredor-indiano", "Muscovy (pato-do-mato)", "Ganso"],
+  ave: ["Diamante-de-Gould", "Mandarim", "Manon", "Cacatua", "Pombo", "Codorna", "Tucano", "Coruja", "Pavão"],
+  // ---- répteis
+  cobra: ["Corn snake (cobra-do-milho)", "Píton-bola (ball python)", "Píton-real", "Jiboia", "Jiboia-arco-íris",
+    "King snake (falsa-coral)", "Milk snake", "Cobra-de-capelo", "Sucuri"],
+  lagarto: ["Iguana-verde", "Gecko-leopardo", "Dragão-barbudo (pogona)", "Teiú", "Camaleão", "Gecko-de-crista",
+    "Calango", "Varano"],
+  jabuti: ["Jabuti-piranga", "Jabuti-tinga", "Jabuti-sulcata", "Jabuti-leopardo"],
+  tartaruga: ["Tigre-d'água", "Tartaruga-de-orelha-vermelha", "Cágado", "Tartaruga-mordedora", "Tartaruga-da-amazônia"],
+  // ---- anfíbios
+  sapo: ["Rã-touro", "Sapo-pacman (Ceratophrys)", "Perereca", "Rã-de-unhas-africana", "Sapo-cururu", "Dendrobata (sapo-flecha)"],
+  axolote: ["Selvagem (escuro)", "Leucístico (rosa)", "Albino", "Dourado", "Melanoide (preto)"],
+  // ---- peixes
+  peixe: ["Betta", "Kinguio (peixe-dourado)", "Guppy (lebiste)", "Neon", "Acará-bandeira (escalar)", "Acará-disco",
+    "Carpa (koi)", "Platy", "Molinésia", "Tetra", "Oscar", "Cascudo", "Paulistinha", "Ciclídeo africano"],
+  // ---- aracnídeos e insetos
+  aranha: ["Caranguejeira", "Tarântula-de-joelho-vermelho (Brachypelma)", "Tarântula-rosa-chilena", "Tarântula-golias",
+    "Tarântula-azul (Chromatopelma)", "Aranha-de-jardim"],
+  escorpiao: ["Escorpião-imperador", "Escorpião-amarelo", "Escorpião-marrom", "Escorpião-do-deserto"],
+  inseto: ["Bicho-pau", "Louva-a-deus", "Besouro", "Barata-de-madagascar", "Formiga (formigário)", "Bicho-folha"],
+  // ---- fazenda
+  cavalo: ["SRD (sem raça definida)", "Mangalarga Marchador", "Quarto de Milha", "Crioulo", "Árabe", "Puro-sangue Inglês",
+    "Campolina", "Appaloosa", "Pônei", "Brasileiro de Hipismo"],
+  burro: ["Jumento", "Mula", "Burro", "Jumento Pêga"],
+  boi: ["Nelore", "Holandesa", "Gir", "Girolando", "Jersey", "Angus", "Brahman", "Guzerá", "Mini vaca"],
+  porco: ["Mini porco", "Caipira", "Landrace", "Large White", "Duroc", "Pietrain", "Piau"],
+  cabra: ["SRD (sem raça definida)", "Saanen", "Boer", "Anglo-nubiana", "Alpina", "Toggenburg", "Mini cabra"],
+  ovelha: ["Santa Inês", "Dorper", "Merino", "Suffolk", "Texel", "Morada Nova"],
+  // ---- silvestres e exóticos
+  macaco: ["Sagui-de-tufo-branco", "Sagui-de-tufo-preto", "Macaco-prego", "Bugio", "Mico-leão"],
+  capivara: ["Capivara"],
+  gamba: ["Gambá-de-orelha-branca", "Gambá-de-orelha-preta", "Cuíca"],
+  silvestre: ["Quati", "Tamanduá", "Tatu", "Ouriço-cacheiro", "Raposa", "Lontra", "Bicho-preguiça", "Veado", "Morcego"],
+  outro: [],
+};

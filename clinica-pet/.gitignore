@@ -1,0 +1,17 @@
+# Gerados pela compilação
+build/
+clinica-pet
+clinica-pet.exe
+*.o
+*.obj
+
+# Ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Sistema operativo e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

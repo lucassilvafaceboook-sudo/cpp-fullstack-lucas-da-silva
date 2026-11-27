@@ -1,0 +1,4 @@
+# Scripts de shell sempre com fim de linha Unix (senão o bash quebra no Windows)
+*.sh  text eol=lf
+# Scripts do Windows sempre com fim de linha do Windows
+*.bat text eol=crlf
